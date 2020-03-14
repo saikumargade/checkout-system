@@ -1,8 +1,25 @@
 import React from "react";
 
 class Product extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      item: props.item
+    };
+  }
+  handleAdd = () => {
+    const { item } = this.state;
+    item.count++;
+    this.setState({ item });
+  };
+  handleDecrease = () => {
+    const { item } = this.state;
+    item.count--;
+    this.setState({ item });
+  };
+
   render() {
-    const { item } = this.props;
+    const { item } = this.state;
     return (
       <div>
         <div
@@ -20,6 +37,7 @@ class Product extends React.Component {
                   height: "30px",
                   margin: "20px 10px 0px 100px"
                 }}
+                onClick={this.handleDecrease}
               >
                 -
               </button>
@@ -33,12 +51,16 @@ class Product extends React.Component {
                   marginTop: "20px",
                   marginLeft: "100px"
                 }}
+                onClick={this.handleAdd}
               >
                 ADD
               </button>
             )}
             {item.count ? (
-              <button style={{ height: "30px", margin: "20px 0px 0px 10px" }}>
+              <button
+                style={{ height: "30px", margin: "20px 0px 0px 10px" }}
+                onClick={this.handleAdd}
+              >
                 +
               </button>
             ) : null}
