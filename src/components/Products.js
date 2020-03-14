@@ -24,6 +24,7 @@ class Products extends React.Component {
   render() {
     return (
       <div>
+        <h2 style={{ margin: "40px 0px 40px 0px" }}>List of products</h2>
         {list.map((p) => {
           return <Product item={p} />;
         })}
