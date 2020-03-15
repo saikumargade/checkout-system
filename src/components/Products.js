@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 let list = [
   {
     name: "Small Pizza",
@@ -28,6 +29,9 @@ class Products extends React.Component {
         {list.map((p) => {
           return <Product item={p} />;
         })}
+        <Link to="/checkout">
+          <button>checkout</button>
+        </Link>
       </div>
     );
   }

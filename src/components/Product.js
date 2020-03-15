@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { cartaction } from "../CartAction";
 
 class Product extends React.Component {
   constructor(props) {
@@ -11,11 +13,13 @@ class Product extends React.Component {
     const { item } = this.state;
     item.count++;
     this.setState({ item });
+    this.props.cartaction({ item });
   };
   handleDecrease = () => {
     const { item } = this.state;
     item.count--;
     this.setState({ item });
+    this.props.cartaction({ item });
   };
 
   render() {
@@ -71,4 +75,4 @@ class Product extends React.Component {
     );
   }
 }
-export default Product;
+export default connect(null, { cartaction })(Product);
