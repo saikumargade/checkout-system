@@ -9,7 +9,7 @@ const CartReducer = (state = initialState, action) => {
       cart = cart.filter((row) => row.item.count);
       let temp =
         cart.filter((row) => row.item.name === action.payload.item.name) || [];
-      if (action.payload.item.count && temp.length == 0)
+      if (action.payload.item.count && temp.length === 0)
         cart.push(action.payload);
       return {
         ...state,

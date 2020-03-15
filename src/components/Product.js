@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { cartaction } from "../CartAction";
+import { cartaction } from "../actions/CartAction";
 
 class Product extends React.Component {
   constructor(props) {

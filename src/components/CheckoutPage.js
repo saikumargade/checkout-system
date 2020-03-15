@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 class CheckoutPage extends React.Component {
   render() {
     const { cart } = this.props;
-    console.log(cart);
     return (
       <div>
         {cart.length
@@ -27,14 +26,15 @@ class CheckoutPage extends React.Component {
                 </div>
               );
             })
-          : "Your cart is empty"}
+          : `Your cart is empty`}
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart
+    cart: state.CartReducer.cart,
+    customer: state.CustomerReducer.customer
   };
 };
 

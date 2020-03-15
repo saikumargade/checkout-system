@@ -1,6 +1,9 @@
 import React from "react";
 import Product from "./Product";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { customeraction } from "../actions/CustomerAction";
+
 let list = [
   {
     name: "Small Pizza",
@@ -22,10 +25,24 @@ let list = [
   }
 ];
 class Products extends React.Component {
+  state = {
+    customer: null
+  };
+  handleChange = (e) => {
+    this.setState({ customer: e.target.value });
+  };
+  handleOkay = () => {
+    this.props.customeraction(this.state.customer);
+  };
   render() {
     return (
       <div>
         <h2 style={{ margin: "40px 0px 40px 0px" }}>List of products</h2>
+        <p>
+          customer:&ensp;
+          <input required="true" onChange={(e) => this.handleChange(e)} />
+          <button onClick={this.handleOkay}>okay</button>
+        </p>
         {list.map((p) => {
           return <Product item={p} />;
         })}
@@ -37,4 +54,4 @@ class Products extends React.Component {
   }
 }
 
-export default Products;
+export default connect(null, { customeraction })(Products);
