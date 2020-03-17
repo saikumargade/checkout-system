@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Instructions for using this application:
+
+ * Please enter customer name in lower case letters.
 
 ## Available Scripts
 
