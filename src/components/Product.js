@@ -27,7 +27,7 @@ class Product extends React.Component {
     return (
       <div>
         <div
-          style={{ display: "flex", flexDirection: "row", marginLeft: "50px" }}
+          style={{ display: "flex", flexDirection: "row", marginLeft: "250px" }}
         >
           <div>
             <p>Name : {item.name}</p>
